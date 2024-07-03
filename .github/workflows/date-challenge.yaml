@@ -10,27 +10,27 @@ name: date-challenge
 on: [push]
 
 jobs:
-    job1:
-        name: First Job
+    ubuntu:
+        name: Print Date Ubuntu
         runs-on: ubuntu-latest
         steps:
         - name: Print the date
           run: date
-    job2:
-        name: Second Job
+    windows:
+        name: Print Date Windows
         runs-on: windows-latest
         steps:
         - name: Print the date
           run: date
-    job3:
-        name: Third Job
+    macos:
+        name: Print Date MacOS
         runs-on: macos-latest
         steps:
         - name: Print the date
           run: date
-    job4:
-        needs: [job1, job2, job3]
-        name: Fourth Job
+    depends:
+        needs: [ubuntu, windows, macos]
+        name: Print Date Bonus
         runs-on: ubuntu-latest
         steps:
         - name: Print the date
