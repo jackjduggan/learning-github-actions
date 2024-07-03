@@ -1,0 +1,37 @@
+# 4 jobs
+# each prints the date
+# job 1 = ubuntu-latest
+# job 2 = windows-latest
+# job 3 = macos-latest
+# job 4 = ubuntu-latest, dependency on the jobs 1,2,3
+name: date-challenge
+
+# trigger
+on: [push]
+
+jobs:
+    job1:
+        name: First Job
+        runs-on: ubuntu-latest
+        steps:
+        - name: Print the date
+          run: date
+    job2:
+        name: Second Job
+        runs-on: windows-latest
+        steps:
+        - name: Print the date
+          run: date
+    job3:
+        name: Third Job
+        runs-on: macos-latest
+        steps:
+        - name: Print the date
+          run: date
+    job4:
+        needs: [job1, job2, job3]
+        name: Fourth Job
+        runs-on: ubuntu-latest
+        steps:
+        - name: Print the date
+          run: date
