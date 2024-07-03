@@ -1,18 +1,16 @@
 name: Artifact Challenge
+
 env: 
   ARTIFACT_NAME: 'challenge-artifact'
   
 on: [push]
 
 jobs:
-  upload:
+  main:
     runs-on: ubuntu-latest
-    
     steps:
-    
     - name: Checkout code
-      uses: actions/checkout@v1
-
+      uses: actions/checkout@v2
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
