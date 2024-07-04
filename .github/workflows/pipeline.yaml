@@ -1,0 +1,29 @@
+name: Pipeline
+
+on: [push]
+
+env:
+  ARTIFACT_NAME: 'hello-artifact'
+
+jobs:
+  test:
+    # runs the script python hello.py
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run hello.py
+      run: python hello.py
+
+  build:
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+    # checkout the repo
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    # create an artifact
+    - name: Create artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ env.ARTIFACT_NAME }}
+        path: .
+    
