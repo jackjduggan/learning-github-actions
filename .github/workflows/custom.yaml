@@ -12,8 +12,8 @@ jobs:
     - name: Run custom action
       uses: "jackjduggan/learning-github-actions-custom-action@main"
 
-    - name: Make script executable
-      run: chmod +x /usr/local/bin/script.sh
+    #- name: Make script executable
+    #  run: chmod +x /usr/local/bin/script.sh
 
     - name: Run script
       run: sh /usr/local/bin/script.sh
